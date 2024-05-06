@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/3ea0746e34.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <div onclick="directTohome()"><i class="fa-solid fa-angle-left"></i></div>
+                </div>
+                <div class="circle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+
+            <img src="media/richard.jpg" class="song-img">
+            <h1>GREATEST 19</h1>
+            <p>RICHARDO</p>
+
+            <audio id="song">
+                <source src="GTA RICHARDO - GREATEST 19 (Official Music Video).mp3" type="audio/mpeg">
+            </audio>
+
+            <input type="range" value="0" id="progress">
+            <div class="controls">
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                <div><i class="fa-solid fa-forward"></i></div>
+            </div>
+            <div class="download-link">
+                <a href="GTA RICHARDO - GREATEST 19 (Official Music Video).mp3" download="GTA RICHARDO - GREATEST 19 (Official Music Video).mp3">Download Audio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let progress = document.getElementById("progress");
+        let song = document.getElementById("song");
+        let ctrlIcon = document.getElementById("ctrlIcon");
+        let backwardBtn = document.querySelector(".fa-backward");
+        let forwardBtn = document.querySelector(".fa-forward");
+    
+        song.onloadmetadata = function () {
+            progress.max = song.duration;
+            progress.value = song.currentTime;
+        };
+    
+        function playPause() {
+            if (ctrlIcon.classList.contains("fa-pause")) {
+                song.pause();
+                ctrlIcon.classList.remove("fa-pause");
+                ctrlIcon.classList.add("fa-play");
+            } else {
+                song.play();
+                ctrlIcon.classList.add("fa-pause");
+                ctrlIcon.classList.remove("fa-play");
+            }
+        }
+    
+        if (song.play()) {
+            setInterval(() => {
+                progress.value = song.currentTime;
+            }, 500);
+        }
+    
+        progress.onchange = function () {
+            song.play();
+            song.currentTime = progress.value;
+            ctrlIcon.classList.add("fa-pause");
+            ctrlIcon.classList.remove("fa-play");
+        };
+    
+        backwardBtn.addEventListener("click", function () {
+            song.currentTime -= 5; // Go back 5 seconds
+        });
+    
+        forwardBtn.addEventListener("click", function () {
+            song.currentTime += 5; // Go forward 5 seconds
+        });
+
+        function directTohome(){
+            window.location.href="index.html";
+        }
+    </script>
+</body>
+</html>
