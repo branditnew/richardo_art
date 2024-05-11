@@ -27,6 +27,7 @@
     text-align: center;
     border-radius: 20px;
     margin-bottom: 20px; /* Add margin at the bottom */
+    font-family: fantasy; /* Set font family */
 }
 
 .music-container {
@@ -43,6 +44,7 @@
     text-align: center;
     border-radius: 20px;
     margin-bottom: 10px;
+    font-family: fantasy; /* Set font family */
 }
 
 .music-player a {
@@ -53,5 +55,3 @@
     padding: 5px 10px; /* Add padding to the links */
     margin-bottom: 10px;
 }
-
-
