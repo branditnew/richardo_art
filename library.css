@@ -54,22 +54,4 @@
     margin-bottom: 10px;
 }
 
-/* Media Queries */
-@media screen and (min-width: 768px) {
-    .title {
-        width: 400px; /* Reset width for larger screens */
-    }
-    
-    .music-player {
-        width: 400px; /* Reset width for larger screens */
-    }
-}
-@media screen and (max-width: 480px) {
-    .title {
-        font-size: 18px; /* Adjust font size for smaller screens */
-    }
-    
-    .music-player {
-        font-size: 16px; /* Adjust font size for smaller screens */
-    }
-}
+
